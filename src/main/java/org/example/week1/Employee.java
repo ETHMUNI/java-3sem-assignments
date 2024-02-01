@@ -32,6 +32,10 @@ public class Employee implements Serializable {
         return names;
     }
 
+    public int getAge() {
+        return age;
+    }
+
 
     public int calculateYear(int currentYear) {
         return currentYear - birthYear;
