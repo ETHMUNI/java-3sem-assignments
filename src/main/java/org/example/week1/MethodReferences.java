@@ -20,7 +20,7 @@ public class MethodReferences {
             return mapResult;
         }
 
-        int[] filter(int[] a, MyValidatingType op) {
+        static int[] filter(int[] a, MyValidatingType op) {
             int[] filterResult = new int[a.length];
             for (int i = 0; i < a.length; i++) {
                 if (op.perform(a[i])) {
@@ -32,13 +32,22 @@ public class MethodReferences {
             return filterResult;
         }
 
+    static int doubleValue(int x) {
+        return x * 2;
+    }
+
+    static boolean isEven(int x) {
+        return x % 2 == 0;
+    }
+
 
         public static void main(String[] args) {
             int[] array = {1,2,3,4,5};
 
-            int[] doubledResult = map(array, x -> x*2);
+            int[] doubledResult = map(array, MethodReferences::doubleValue);
 
-            // Not sure how to implement the filter method
+            int[] filteredResult = filter(array, MethodReferences::isEven);
+            System.out.println(Arrays.toString(filteredResult));
 
             System.out.println(Arrays.toString(doubledResult));
 

@@ -13,7 +13,6 @@ public class DataStorageApp {
         String filename = fileStorage.store(new Employee("John", 30));
         Employee retrievedInt = fileStorage.retrieve(filename);
 
-        System.out.println(retrievedInt.getNames());
         System.out.println(retrievedInt.getAge());
 
 

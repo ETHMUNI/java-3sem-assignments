@@ -20,7 +20,7 @@ public class FunctionalProgramming {
         return mapResult;
     }
 
-    int[] filter(int[] a, MyValidatingType op) {
+    static int[] filter(int[] a, MyValidatingType op) {
         int[] filterResult = new int[a.length];
         for (int i = 0; i < a.length; i++) {
             if (op.perform(a[i])) {
@@ -38,7 +38,8 @@ public class FunctionalProgramming {
 
         int[] doubledResult = map(array, x -> x*2);
 
-        // Not sure how to implement the filter method
+        int[] filteredResult = filter(array, x -> x % 2 == 0);
+        System.out.println(Arrays.toString(filteredResult));
 
         System.out.println(Arrays.toString(doubledResult));
 

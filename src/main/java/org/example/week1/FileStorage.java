@@ -6,7 +6,7 @@ import java.lang.reflect.Type;
 public class FileStorage<T> implements DataStorage<T> {
 
     @Override
-    // Gemmer data i en fil med navn der er baseret på dataens klasse type, nuværende tidsstempel, og returnerer filnavnet.
+    // Gemmer data/objekt i en fil med navn der er baseret på dataens klasse type, nuværende tidsstempel, og returnerer filnavnet.
     public String store(T data) {
         Type typeOf = data.getClass();
         String fileName = typeOf.toString();
@@ -26,7 +26,7 @@ public class FileStorage<T> implements DataStorage<T> {
     }
 
     @Override
-    // Indlæser data og returnerer data fra en fil specificeret af source.
+    // Indlæser et objekt og returnerer et objekt
     public T retrieve(String source) {
         try {
         FileInputStream fis = new FileInputStream(source);

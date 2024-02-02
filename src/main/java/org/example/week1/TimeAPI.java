@@ -33,7 +33,10 @@ public class TimeAPI {
 
             // 3. Filter and display employees who have birthdays in a specific month
             // use Predicate
+
+            // 4. Group employees by birth month and display the count of employees in each group.
+
+            // 5. List all employees who has a birthday in the current month.
         }
 
-        // 3. Filter and display employees who have birthdays in a specific month
 }
