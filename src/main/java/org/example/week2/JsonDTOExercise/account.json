@@ -1,0 +1,78 @@
+[
+  {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "birthDate": "1990-01-01",
+    "address": {
+      "street": "Kornmarken 13",
+      "city": "Helsingør",
+      "zipCode": 3000
+    },
+    "account": {
+      "id": "1",
+      "balance": "1000.00",
+      "isActive": true
+    }
+  },
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "birthDate": "1950-05-01",
+    "address": {
+      "street": "et eller andet vej 123",
+      "city": "Frederiksberg",
+      "zipCode": 2000
+    },
+    "account": {
+      "id": "2",
+      "balance": "100.00",
+      "isActive": true
+    }
+  },
+  {
+    "firstName": "Jim",
+    "lastName": "Doe",
+    "birthDate": "1960-04-10",
+    "address": {
+      "street": "noget vej 123",
+      "city": "København K",
+      "zipCode": 1300
+    },
+    "account": {
+      "id": "3",
+      "balance": "69.420",
+      "isActive": true
+    }
+  },
+  {
+    "firstName": "Hans",
+    "lastName": "Doe",
+    "birthDate": "1990-04-12",
+    "address": {
+      "street": "Højmarksvej 13",
+      "city": "Lyngby",
+      "zipCode": 2800
+    },
+    "account": {
+      "id": "4",
+      "balance": "0",
+      "isActive": false
+    }
+  },
+  {
+    "firstName": "Hanne",
+    "lastName": "Doe",
+    "birthDate": "1990-01-01",
+    "address": {
+      "street": "Noget vej 55",
+      "city": "Lyngby",
+      "zipCode": 2800
+    },
+    "account": {
+      "id": "5",
+      "balance": "1.000.000,00",
+      "isActive": true
+    }
+  }
+
+]

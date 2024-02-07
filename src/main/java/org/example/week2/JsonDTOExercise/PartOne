@@ -1,0 +1,42 @@
+What does JSON stand for?
+
+Answer: JavaScript Object Notation
+
+--------------------
+
+What is the difference between JSON and XML?
+
+Answer:
+
+JSON:
+- Using Javascript Syntax
+- Supports datatypes like ints, strings, booleans, arrays and objects
+- Faster to transmit over the web
+
+
+XML:
+- Using tags just like HTML
+- Treats data as strings
+- Larger due to tagging structure but often more detailed
+
+--------------------
+
+For what is JSON generally used for?
+
+Answer: APIs, web applications and server side applications
+
+--------------------
+
+Write down the 6 data types in JSON.
+
+Answer: ints, strings, booleans, arrays, objects and null
+
+--------------------
+
+Write down the 4 JSON syntax rules.
+
+Answer:
+    1. Use curly braces for objects
+    2. Use square braces for Arrays
+    3. String must be closed with double quotes ""
+    4. Comments in JSON is not allowed
