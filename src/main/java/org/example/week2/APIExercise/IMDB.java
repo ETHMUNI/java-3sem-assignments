@@ -22,7 +22,7 @@ public class IMDB {
         IMDB example = new IMDB();
         MovieDTO movie = null;
         try {
-            movie = example.getMovie("tt0111161"); // Example IMDB ID. Replace with dynamic input if needed.
+            movie = example.getMovie("tt0111161"); // IMDB ID for The Shawshank Redemption
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -101,6 +101,14 @@ public class IMDB {
         @SerializedName("release_date") // This line maps the JSON property to the field
         private String releaseDate;
         private double vote_average;
+
+        public MovieDTO(String id, String title) {
+            this.id = id;
+            this.title = title;
+            this.overview = overview;
+            this.releaseDate = releaseDate;
+            this.vote_average = vote_average;
+        }
     }
 
     private static class MovieDetails {
