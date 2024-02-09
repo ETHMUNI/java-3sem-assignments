@@ -60,8 +60,7 @@ public class IMDB {
 
         MovieDetails details = gson.fromJson(responseBody, MovieDetails.class);
 
-        // This part depends on the actual structure of the response
-        // You need to extract the first movie from the results, if available
+
         if (details != null && details.movieResults != null && !details.movieResults.isEmpty()) {
             return details.movieResults.get(0);
             }

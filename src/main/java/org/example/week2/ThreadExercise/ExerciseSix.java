@@ -1,5 +1,9 @@
 package org.example.week2.ThreadExercise;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -30,26 +34,21 @@ public class ExerciseSix {
         HttpClient client = HttpClient.newHttpClient();
         ExecutorService executor = Executors.newFixedThreadPool(urls.length);
 
-        List<Callable<String>> tasks = new ArrayList<>();
+        List<Callable<responseDto>> tasks = new ArrayList<>();
         for (String url : urls) {
-            tasks.add(() -> getApiResponse(client, url));
+            tasks.add(() -> new responseDto(url, getApiResponse(client, url)));
         }
 
-        List<Future<String>> results = executor.invokeAll(tasks);
+        List<Future<responseDto>> results = executor.invokeAll(tasks);
         executor.shutdown();
 
-        // Assuming MegaDto is a class that aggregates all API responses. You need to implement this.
         MegaDto megaDto = new MegaDto();
-        for (Future<String> result : results) {
-            // Here, you would parse the JSON response into a DTO and add it to the mega DTO
-            // For simplicity, this example just prints out the response.
-            String response = result.get(); // This line can throw InterruptedException or ExecutionException
-            System.out.println(response);
-            // Example: megaDto.add(parseDtoFromResponse(response));
+        for (Future<responseDto> result : results) {
+            responseDto responseDto = result.get();
+            megaDto.addResponseDto(responseDto);
         }
 
-        // Print the mega DTO in a nice format
-        // System.out.println(megaDto);
+        System.out.println(megaDto);
     }
 
     private static String getApiResponse(HttpClient client, String urlString) throws Exception {
@@ -62,9 +61,46 @@ public class ExerciseSix {
         return response.body();
     }
 
-    // Define your DTO classes and the MegaDto class based on your specific requirements.
-    private static class MegaDto {
-        // Example fields and methods for aggregating individual DTOs
-    }
-}
+    @Getter
+    @Setter
+    private static class responseDto {
+        private String url;
+        private String response;
+        private String title;
+        private String desc;
 
+        public responseDto(String url, String response) {
+            this.url = url;
+            this.response = response;
+        }
+
+        @Override
+        public String toString() {
+            return "responseDto{" +
+                    "url='" + url + '\'' +
+                    ", response='" + response + '\'' +
+                    ", title='" + title + '\'' +
+                    ", desc='" + desc + '\'' +
+                    '}';
+        }
+    }
+
+    private static class MegaDto {
+        private List<responseDto> responses = new ArrayList<>();
+
+        public void addResponseDto(responseDto dto) {
+            responses.add(dto);
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            for (responseDto dto : responses) {
+                sb.append(dto.toString()).append("\n"); // Bruger responseDto toString metode
+            }
+            return sb.toString();
+        }
+    }
+
+
+}

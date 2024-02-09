@@ -22,30 +22,20 @@ public class ExerciseTwo {
         Thread thread1 = new Thread(() -> {
             for (int i = 0; i < 100; i++) {
                 counter.increment();
+                System.out.println("thread1: " + counter.getCount());
             }
         });
 
         Thread thread2 = new Thread(() -> {
             for (int i = 0; i < 100; i++) {
                 counter.increment();
+                System.out.println("thread2: " + counter.getCount());
             }
         });
 
         thread1.start();
-        thread2.start();
-
-        // vent på at threads er færdige
         thread1.join();
+        thread2.start();
         thread2.join();
-
-        System.out.println("Expected count: 200");
-        System.out.println("Actual count: " + counter.getCount());
-
-        // Check om counter er thread safe
-        if (counter.getCount() == 200) {
-            System.out.println("Counter is thread-safe");
-        } else {
-            System.out.println("Counter is not thread-safe");
-        }
     }
 }

@@ -22,11 +22,11 @@ public class Account {
 
     @Getter
     @JsonProperty("address")
-    private AddressDTO address; // Adjusted to map the nested structure
+    private AddressDTO address;
 
     @Getter
     @JsonProperty("account")
-    private AccountDetailsDTO accountDetails; // Adjusted to map the nested structure
+    private AccountDetailsDTO accountDetails;
 
     public static void main(String[] args) {
         Account account = new Account();
@@ -55,12 +55,12 @@ public class Account {
         NameDTO[] dto = new NameDTO[accounts.length];
         for (int i = 0; i < accounts.length; i++) {
             Account account = accounts[i];
-            NameDTO nameDTO = new NameDTO(); // Correctly instantiate a new NameDTO object
+            NameDTO nameDTO = new NameDTO();
             nameDTO.setFullName(account.getFirstName() + " " + account.getLastName());
-            nameDTO.setCity(account.getAddress().getCity()); // Correctly access nested city
-            nameDTO.setZipCode(account.getAddress().getZipCode()); // Correctly access nested zipCode
-            nameDTO.setIsActive(String.valueOf(account.getAccountDetails().isActive())); // Correctly access and convert boolean isActive
-            dto[i] = nameDTO; // Assign the filled NameDTO object to the current index in the array
+            nameDTO.setCity(account.getAddress().getCity());
+            nameDTO.setZipCode(account.getAddress().getZipCode());
+            nameDTO.setIsActive(String.valueOf(account.getAccountDetails().isActive()));
+            dto[i] = nameDTO;
         }
         return dto;
     }
