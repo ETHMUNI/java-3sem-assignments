@@ -51,7 +51,7 @@ public class ExerciseSix {
         System.out.println(megaDto);
     }
 
-    private static String getApiResponse(HttpClient client, String urlString) throws Exception {
+    public static String getApiResponse(HttpClient client, String urlString) throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(urlString))
                 .header("Accept", "application/json")
