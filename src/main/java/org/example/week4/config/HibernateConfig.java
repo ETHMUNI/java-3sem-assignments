@@ -1,12 +1,7 @@
-package org.example.week3;
+package org.example.week4.config;
 
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
-import org.example.week3.DAOExercise.Student;
-import org.example.week3.GLSExercise.GLSPackage;
-import org.example.week3.GLSExercise.Location;
-import org.example.week3.GLSExercise.Shipment;
-import org.example.week3.PointExercise.Point;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -25,7 +20,7 @@ public class HibernateConfig {
 
             Properties props = new Properties();
 
-            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/exercise?currentSchema=public");
+            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/school?currentSchema=public");
             props.put("hibernate.connection.username", "postgres");
             props.put("hibernate.connection.password", "postgres");
             props.put("hibernate.show_sql", "true"); // show sql in console
@@ -36,7 +31,7 @@ public class HibernateConfig {
             props.put("hibernate.connection.driver_class", "org.postgresql.Driver"); // driver class for postgresql
             props.put("hibernate.archive.autodetection", "class"); // hibernate scans for annotated classes
             props.put("hibernate.current_session_context_class", "thread"); // hibernate current session context
-            props.put("hibernate.hbm2ddl.auto", "update"); // hibernate creates tables based on entities
+            props.put("hibernate.hbm2ddl.auto", "create"); // hibernate creates tables based on entities
 
 
             return getEntityManagerFactory(configuration, props);
@@ -61,9 +56,12 @@ public class HibernateConfig {
     private static void getAnnotationConfiguration(Configuration configuration) {
         // add annotated classes
         // configuration.addAnnotatedClass(<YOUR ENTITY>.class);
-        configuration.addAnnotatedClass(GLSPackage.class);
-        configuration.addAnnotatedClass(Location.class);
-        configuration.addAnnotatedClass(Shipment.class);
+        //configuration.addAnnotatedClass(Driver.class);
+        //configuration.addAnnotatedClass(WasteTruck.class);
+        configuration.addAnnotatedClass(org.example.week4.SchoolExercise.Student.class);
+        configuration.addAnnotatedClass(org.example.week4.SchoolExercise.Semester.class);
+        configuration.addAnnotatedClass(org.example.week4.SchoolExercise.Teacher.class);
+        configuration.addAnnotatedClass(org.example.week4.SchoolExercise.StudentInfo.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {

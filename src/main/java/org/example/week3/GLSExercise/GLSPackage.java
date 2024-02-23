@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Builder
 @Entity
 @Table(name = "gls_packages")
@@ -39,6 +42,9 @@ public class GLSPackage {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updatedAt")
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "GLSpackage")
+    private List<Shipment> shipments = new ArrayList<>();
 
     public enum DeliveryStatus {
         PENDING,

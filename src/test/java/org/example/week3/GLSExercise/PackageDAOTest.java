@@ -31,7 +31,7 @@ public class PackageDAOTest {
     @Test
     public void create() {
         GLSPackage pkg = new GLSPackage();
-        pkg.setTrackingNumber("ABC123");
+        pkg.setTrackingNumber("12345");
         pkg.setSenderName("Jane");
         pkg.setReceiverName("John");
         pkg.setDeliveryStatus(GLSPackage.DeliveryStatus.PENDING);
@@ -41,7 +41,7 @@ public class PackageDAOTest {
         // Retrieve the package from the database and assert its existence
         GLSPackage retrievedPackage = em.find(GLSPackage.class, pkg.getId());
         Assertions.assertNotNull(retrievedPackage);
-        Assertions.assertEquals("ABC123", retrievedPackage.getTrackingNumber());
+        Assertions.assertEquals("12345", retrievedPackage.getTrackingNumber());
     }
 
     @Test
