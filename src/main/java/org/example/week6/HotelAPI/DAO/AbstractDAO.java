@@ -1,4 +1,4 @@
-package org.example.week5.Exercise_wed_thur.DAO;
+package org.example.week6.HotelAPI.DAO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class AbstractDAO<T, V> implements IDAO<T, V> {
 
-    public EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
     private Class<T> genericClass;
 
     public AbstractDAO(Class<T> genericClass) {
