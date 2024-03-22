@@ -2,14 +2,14 @@ package org.example.week6.HotelAPI.DAO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Query;
-import org.example.week5.Exercise_wed_thur.Entities.HotelDTO;
-import org.example.week6.HotelAPI.HibernateConfig;
+import org.example.week6and7.HotelAPI.Config.HibernateConfig;
+import org.example.week6and7.HotelAPI.DAO.HotelDAO;
+import org.example.week6and7.HotelAPI.Entities.HotelDTO;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.Date;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
